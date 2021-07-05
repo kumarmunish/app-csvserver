@@ -1,0 +1,15 @@
+version: "2.2"
+services:
+  csvserver:
+    ports:
+      - "9393:9300"
+    volumes:
+      - ./inputFile:/csvserver/inputdata
+    environment:
+      - CSVSERVER_BORDER=Orange 
+    image: "infracloudio/csvserver:latest"
+
+  prometheus:
+    ports:
+      - "9090:9090"
+    image: "prom/prometheus:v2.22.0" 
