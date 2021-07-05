@@ -12,4 +12,9 @@ services:
   prometheus:
     ports:
       - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command: 
+      - '--web.enable-lifecycle'  
+      - '--config.file=/etc/prometheus/prometheus.yml'
     image: "prom/prometheus:v2.22.0" 
